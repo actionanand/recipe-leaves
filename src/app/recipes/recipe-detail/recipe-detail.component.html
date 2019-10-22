@@ -10,14 +10,14 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <div class="btn-group">
-            <button class="btn btn-outline-info dropdown-toggle" type="button">
+        <div class="btn-group" ngbDropdown>
+            <button class="btn btn-outline-info dropdown-toggle" type="button" ngbDropdownToggle>
                 Manage Recipe <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu">
-                <li><a href="">To shopping List</a></li>
-                <li><a href="">Edit Recipe</a></li>
-                <li><a href="">Delete Recipe</a></li>
+            <ul class="dropdown-menu" ngbDropdownMenu>
+                <li><a class="dropdown-item" href="">To shopping List</a></li>
+                <li><a class="dropdown-item" href="">Edit Recipe</a></li>
+                <li><a class="dropdown-item" href="">Delete Recipe</a></li>
             </ul>
         </div>
     </div>
