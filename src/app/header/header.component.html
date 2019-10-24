@@ -1,24 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">{{appTitle}}</a>
+    <a class="navbar-brand" routerLink="/">{{appTitle}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav w-100">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/recipes">Recipe <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav nav-pills w-100">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/recipes" routerLinkActive="active">Recipe </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
+          <a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
         </li>
         <li ngbDropdown class="nav-item dropdown ml-auto">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown link
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" >Action</a>
+            <a class="dropdown-item" >Another action</a>
+            <a class="dropdown-item" >Something else here</a>
           </div>
         </li>
       </ul>
