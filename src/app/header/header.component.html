@@ -16,9 +16,8 @@
             Dropdown link
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" >Action</a>
-            <a class="dropdown-item" >Another action</a>
-            <a class="dropdown-item" >Something else here</a>
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
           </div>
         </li>
       </ul>

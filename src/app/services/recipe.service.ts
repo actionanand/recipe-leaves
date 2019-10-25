@@ -22,7 +22,7 @@ export class RecipeService {
       new Ingredient('Meat', 1)
     ]),
     new Recipe('Filter Coffe',
-    'Morning strong coffee. It tastes good',
+    'Morning strong coffee. Wah.. What a taste?',
     'https://cdn.pixabay.com/photo/2015/10/12/14/54/coffee-983955_960_720.jpg',
     [
       new Ingredient('Coffe bean', 7),
@@ -39,6 +39,11 @@ export class RecipeService {
   ];
 
   constructor(private slServ: ShoppingListService){}
+
+  setRecipe(recipes: Recipe[]){
+    this.recipes = recipes;
+    this.recipeChanged.next(this.recipes.slice());
+  }
 
   getRecipes(){
     return this.recipes.slice();
