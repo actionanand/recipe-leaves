@@ -94,4 +94,10 @@ export class RecipeNewEditPageComponent implements OnInit {
     }
   }
 
+  onClearAllIng(){
+    if(confirm('Sure to remove all ingredients?')){
+      (<FormArray>this.recipeForm.get('ingredients')).clear();
+    }
+  }
+
 }
