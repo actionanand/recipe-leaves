@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12">
                     <button type="submit" class="btn btn-outline-success" [disabled]="!recipeForm.valid">submit <i class="fas fa-paper-plane"></i></button>&nbsp;
-                    <button type="button" class="btn btn-outline-danger">Cancel <i class="fas fa-window-close"></i></button>
+                    <button type="button" class="btn btn-outline-danger" (click)="onCancel()">Cancel <i class="fas fa-window-close"></i></button>
                 </div>
             </div>
             <br>
@@ -22,15 +22,16 @@
                     <div class="form-group">
                         <label for="imagePath">Image URL</label>
                         <input type="text" id="imagePath" class="form-control"
-                        formControlName="imagePath">
+                        formControlName="imagePath" #imgPreview>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <img src="" class="img-responsive">
+                    <img [src]="imgPreview.value" class="img-fluid">
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
@@ -54,7 +55,7 @@
                             formControlName="amount">
                         </div>
                         <div class="col-1">
-                            <button class="btn btn-outline-danger" type="button">
+                            <button class="btn btn-outline-danger" type="button" (click)="onDeleteIng(i)">
                                 <i class="far fa-trash-alt"></i></button>
                         </div>
                     </div>
