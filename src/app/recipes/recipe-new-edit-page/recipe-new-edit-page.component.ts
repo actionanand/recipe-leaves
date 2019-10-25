@@ -28,7 +28,13 @@ export class RecipeNewEditPageComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.recipeForm);
+    if(this.editMode){
+      this.recipeServ.updateRecipe(this.id, this.recipeForm.value);
+    } else
+
+    {
+      this.recipeServ.addRecipe(this.recipeForm.value);
+    }
   }
 
   getControls() {
