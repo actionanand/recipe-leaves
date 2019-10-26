@@ -1,18 +1,21 @@
 <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
-        <form>
+        <form #f="ngForm">
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" autofocus="on"
+              ngModel name="email" required email>
             </div>
             <div class="form-group">
               <label for="password1">Password</label>
-              <input type="{{showPass ? 'text' : 'password'}}" class="form-control" id="password1" placeholder="Password">
+              <input type="{{showPass ? 'text' : 'password'}}" class="form-control" id="password1" placeholder="Password should be at least 8 chars"
+              ngModel name="password" required pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$"
+              >
               <span class="far fa-{{showPass ? 'eye-slash' : 'eye'}} innerSpan"
               (click)="showPass=!showPass" style="cursor: pointer;"></span>
+              <small id="emailHelp" class="form-text text-muted">Password should contain lower & upper cases, digits and special chars</small>
             </div>
-            <button type="submit" class="btn btn-outline-primary">
+            <button type="submit" class="btn btn-outline-primary" [disabled]="!f.valid">
                 {{isLogIn ? 'Login' : 'Sign Up'}} <i class="fas fa-sign-in-alt"></i>
             </button>&nbsp;
             <button type="button" class="btn btn-outline-info"(click)="isLogIn=!isLogIn">
