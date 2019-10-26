@@ -18,6 +18,7 @@ import { RecipeStartPageComponent } from './recipes/recipe-start-page/recipe-sta
 import { RecipeNewEditPageComponent } from './recipes/recipe-new-edit-page/recipe-new-edit-page.component';
 import { AuthComponent } from './auth/auth.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     RecipeStartPageComponent,
     RecipeNewEditPageComponent,
     AuthComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
