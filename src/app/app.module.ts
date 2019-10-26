@@ -16,6 +16,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropdownDirective } from './directives/dropdown.directive';
 import { RecipeStartPageComponent } from './recipes/recipe-start-page/recipe-start-page.component';
 import { RecipeNewEditPageComponent } from './recipes/recipe-new-edit-page/recipe-new-edit-page.component';
+import { AuthComponent } from './auth/auth.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RecipeNewEditPageComponent } from './recipes/recipe-new-edit-page/recip
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartPageComponent,
-    RecipeNewEditPageComponent
+    RecipeNewEditPageComponent,
+    AuthComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
