@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
+  isLogIn:boolean = true;
+  
   constructor() { }
 
   ngOnInit() {
