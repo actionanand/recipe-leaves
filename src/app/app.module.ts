@@ -19,6 +19,9 @@ import { RecipeNewEditPageComponent } from './recipes/recipe-new-edit-page/recip
 import { AuthComponent } from './auth/auth.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChargingComponent } from './loading-spinner/charging/charging.component';
+import { FacebookComponent } from './loading-spinner/facebook/facebook.component';
+import { LoadingComponent } from './loading-spinner/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RecipeNewEditPageComponent,
     AuthComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChargingComponent,
+    FacebookComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
