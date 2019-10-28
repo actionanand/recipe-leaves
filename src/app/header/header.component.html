@@ -14,11 +14,11 @@
         <li class="nav-item" *ngIf="!isAuthenticated">
           <a class="nav-link" routerLink="/auth" routerLinkActive="active">Authenticate</a>
         </li>
-        <li ngbDropdown class="nav-item dropdown ml-auto" *ngIf="isAuthenticated">
+        <li ngbDropdown class="nav-item dropdown ml-auto">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Manage
+            <strong>{{name | titlecase}}</strong>&nbsp;<i class="fas fa-user" [style.color]="isAuthenticated ? 'green' : 'red'"></i>
           </a>
-          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" *ngIf="isAuthenticated">
             <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
             <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
             <a class="dropdown-item" style="cursor: pointer;" >Logout</a>
