@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ChargingComponent } from './loading-spinner/charging/charging.component';
 import { FacebookComponent } from './loading-spinner/facebook/facebook.component';
 import { LoadingComponent } from './loading-spinner/loading/loading.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,12 @@ import { LoadingComponent } from './loading-spinner/loading/loading.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
