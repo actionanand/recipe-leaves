@@ -11,16 +11,17 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isAuthenticated">
           <a class="nav-link" routerLink="/auth" routerLinkActive="active">Authenticate</a>
         </li>
-        <li ngbDropdown class="nav-item dropdown ml-auto">
+        <li ngbDropdown class="nav-item dropdown ml-auto" *ngIf="isAuthenticated">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Manage
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
             <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
+            <a class="dropdown-item" style="cursor: pointer;" >Logout</a>
           </div>
         </li>
       </ul>
