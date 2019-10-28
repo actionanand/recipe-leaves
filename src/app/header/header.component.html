@@ -21,7 +21,7 @@
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" *ngIf="isAuthenticated">
             <a class="dropdown-item" style="cursor: pointer;" (click)="onFetchData()">Fetch Data</a>
             <a class="dropdown-item" style="cursor: pointer;" (click)="onSaveData()">Save Data</a>
-            <a class="dropdown-item" style="cursor: pointer;" >Logout</a>
+            <a class="dropdown-item" style="cursor: pointer;" (click)="onLogOut()">Logout</a>
           </div>
         </li>
       </ul>
