@@ -8,10 +8,11 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeResolverService } from './services/recipe-resolver.service';
 import { AuthComponent } from './auth/auth.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  {path: 'recipes', component: RecipesComponent, children: [
+  {path: 'recipes', canActivate: [AuthGuard], component: RecipesComponent, children: [
     {path: '', component: RecipeStartPageComponent},
     {path: 'new', component: RecipeNewEditPageComponent},
     {path: ':id', component: RecipeDetailComponent, resolve: [RecipeResolverService]},
