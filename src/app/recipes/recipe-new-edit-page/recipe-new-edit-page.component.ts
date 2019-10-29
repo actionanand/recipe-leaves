@@ -3,18 +3,20 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 import { RecipeService } from 'src/app/services/recipe.service';
-import { Ingredient } from 'src/app/models/ingredient.model';
+import { CanComponentDeactivate } from 'src/app/guards/can-deactivate-guard.guard';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-new-edit-page',
   templateUrl: './recipe-new-edit-page.component.html',
   styleUrls: ['./recipe-new-edit-page.component.css']
 })
-export class RecipeNewEditPageComponent implements OnInit {
+export class RecipeNewEditPageComponent implements OnInit, CanComponentDeactivate {
 
   id:number;
   editMode:boolean = false;
   recipeForm: FormGroup;
+  isSaved: boolean = true;
 
   constructor(private route: ActivatedRoute, private recipeServ: RecipeService, private router:Router) { }
 
@@ -36,6 +38,7 @@ export class RecipeNewEditPageComponent implements OnInit {
     {
       this.recipeServ.addRecipe(this.recipeForm.value);
     }
+    this.isSaved = false;
     this.onCancel();
   }
 
@@ -48,6 +51,7 @@ export class RecipeNewEditPageComponent implements OnInit {
     let recipeDescription = '';
     let recipeImgPath = '';
     let recipeIngr = new FormArray([]);
+    this.isSaved = false;
 
     if(this.editMode){
       const recipe = this.recipeServ.getRecipe(this.id);
@@ -97,6 +101,15 @@ export class RecipeNewEditPageComponent implements OnInit {
   onClearAllIng(){
     if(confirm('Sure to remove all ingredients?')){
       (<FormArray>this.recipeForm.get('ingredients')).clear();
+    }
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean{
+    if(!this.isSaved){
+      return confirm('Do you want to discard changes?');
+    } else
+    {
+      return true;
     }
   }
 
