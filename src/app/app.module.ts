@@ -23,6 +23,8 @@ import { ChargingComponent } from './loading-spinner/charging/charging.component
 import { FacebookComponent } from './loading-spinner/facebook/facebook.component';
 import { LoadingComponent } from './loading-spinner/loading/loading.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { AlertBoxComponent } from './dynamic-comp/alert-box/alert-box.component';
+import { PlaceHolderDirective } from './directives/place-holder.directive';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     PageNotFoundComponent,
     ChargingComponent,
     FacebookComponent,
-    LoadingComponent
+    LoadingComponent,
+    AlertBoxComponent,
+    PlaceHolderDirective
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
       multi: true
   }
 ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AlertBoxComponent]
 })
 export class AppModule { }

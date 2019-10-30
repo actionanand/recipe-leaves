@@ -1,12 +1,13 @@
+<ng-template appPlaceHolder></ng-template>
 <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
 
       <div style="text-align: center;" *ngIf="isLoading">
         <app-loading></app-loading>
       </div>
-      <div class="alert alert-danger" *ngIf="error">
+      <!-- <div class="alert alert-danger" *ngIf="error">
         <p>{{error}}</p>
-      </div>
+      </div> -->
 
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="!isLoading">
             <div class="form-group">
