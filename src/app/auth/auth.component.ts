@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewChild } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { PlaceHolderDirective } from '../directives/place-holder.directive';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent implements OnInit, OnDestroy {
 
   isLogIn:boolean = true;
   showPass:boolean = false;
@@ -70,8 +70,16 @@ export class AuthComponent implements OnInit {
         dynamicCompRef.instance.message = this.error;
 
         this.closeSubs = dynamicCompRef.instance.close.subscribe(()=>{
+          this.closeSubs.unsubscribe();
           hostViewContainer.clear();
         });
       }
+
+    ngOnDestroy(){
+      if(this.closeSubs){
+
+        this.closeSubs.unsubscribe();
+      }
+    }
 
 }
