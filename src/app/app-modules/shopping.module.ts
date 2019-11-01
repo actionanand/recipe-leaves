@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from '../shopping-list/shopping-edit/shopping-edit.component';
 import { RouterModule } from '@angular/router';
+import { CommonFeatureModule } from './common-feature.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +15,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {path: '', component: ShoppingListComponent}
     ]),
-    CommonModule,
-    FormsModule
+    FormsModule,
+    CommonFeatureModule
   ],
   exports: [
     ShoppingListComponent,

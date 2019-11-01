@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { RecipesComponent } from 'src/app/recipes/recipes.component';
 import { RecipeListComponent } from 'src/app/recipes/recipe-list/recipe-list.component';
@@ -10,6 +10,7 @@ import { RecipeStartPageComponent } from 'src/app/recipes/recipe-start-page/reci
 import { RecipeNewEditPageComponent } from 'src/app/recipes/recipe-new-edit-page/recipe-new-edit-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipesRoutesModule } from './recipes-routes.module';
+import { CommonFeatureModule } from '../common-feature.module';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { RecipesRoutesModule } from './recipes-routes.module';
     RecipeNewEditPageComponent
   ],
   imports: [
-    CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    RecipesRoutesModule
+    NgbModule,
+    RecipesRoutesModule,
+    CommonFeatureModule
   ],
   exports: [
     RecipesComponent,
