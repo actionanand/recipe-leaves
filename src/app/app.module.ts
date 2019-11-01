@@ -7,8 +7,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-modules/app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './directives/dropdown.directive';
 import { AuthComponent } from './auth/auth.component';
 import { FooterComponent } from './footer/footer.component';
@@ -19,8 +17,6 @@ import { LoadingComponent } from './loading-spinner/loading/loading.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { AlertBoxComponent } from './dynamic-comp/alert-box/alert-box.component';
 import { PlaceHolderDirective } from './directives/place-holder.directive';
-import { RecipesModule } from './app-modules/recipes/recipes.module';
-import { ShoppingModule } from './app-modules/shopping.module';
 
 @NgModule({
   declarations: [
@@ -41,9 +37,7 @@ import { ShoppingModule } from './app-modules/shopping.module';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    AppRoutingModule,
-    RecipesModule,
-    ShoppingModule
+    AppRoutingModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,

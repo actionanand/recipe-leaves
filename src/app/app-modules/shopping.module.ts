@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     RouterModule.forChild([
-      {path: 'shopping-list', component: ShoppingListComponent}
+      {path: '', component: ShoppingListComponent}
     ]),
     CommonModule,
     FormsModule
