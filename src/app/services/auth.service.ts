@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError, BehaviorSubject } from 'rxjs';
+import { throwError, BehaviorSubject, from } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { User } from '../models/user.model';
-import { timeout } from 'q';
+import { environment } from '../../environments/environment';
 
 export interface AuthRespData{
   kind: string;
@@ -30,7 +30,7 @@ export class AuthService {
 
   signUp(email: string, password: string){
     return this.http.post<AuthRespData>
-    ('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=fireBaseApiKey',
+    ('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +environment.fireBaseApiKey,
     {
       email: email,
       password: password,
@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   signIn(email: string, password: string){
-    return this.http.post<AuthRespData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=fireBaseApiKey',
+    return this.http.post<AuthRespData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' +environment.fireBaseApiKey,
     {
       email: email,
       password: password,
@@ -107,6 +107,7 @@ export class AuthService {
       if(!errorResp.error || !errorResp.error.error){
         return throwError(errorMsg);
       }
+      // console.log(errorResp);
       switch(errorResp.error.error.message){
         case 'EMAIL_EXISTS':
           errorMsg = 'This email ID already exists!';
@@ -116,6 +117,9 @@ export class AuthService {
         break;
         case 'INVALID_PASSWORD':
           errorMsg = 'Please check your password';
+        break;
+        case 'API key not valid. Please pass a valid API key.':
+          errorMsg = 'Please contact App owner!';
         break;
       }
       return throwError(errorMsg);
