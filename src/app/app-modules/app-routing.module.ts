@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'shopping-list', loadChildren: './shopping.module#ShoppingModule'},
   {path: 'recipes', loadChildren: ()=> import('./recipes/recipes.module').then(m=> m.RecipesModule)},
   {path: 'auth', component: AuthComponent},
+  {path: 'page-not-found', component: PageNotFoundComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

@@ -14,6 +14,7 @@ export class RecipeResolverService implements Resolve<Recipe[]> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     const recipes = this.recipeServ.getRecipes();
+    // let id: number = +route.paramMap.get('id');
 
     if(recipes.length == 0){
       return this.dataStorageServ.fetchRecipe();

@@ -12,6 +12,7 @@ export class RecipeService {
 
   // recipeSelected = new EventEmitter<Recipe>();
   recipeChanged = new Subject<Recipe[]>();
+  loadedRecp = new Subject<Recipe>();
 
   // private recipes: Recipe[] = [
   // new Recipe('Big Fat Burger',
@@ -55,6 +56,7 @@ export class RecipeService {
     return this.recipes[index];
   }
 
+
   addIngredientsToShoppingList(ingredients: Ingredient[]){
     this.slServ.addIngredients(ingredients);
   }
@@ -72,5 +74,9 @@ export class RecipeService {
   deleteRecipe(index: number){
     this.recipes.splice(index, 1);
     this.recipeChanged.next(this.recipes.slice());
+  }
+
+  isRecipeExist(index: number){
+    this.loadedRecp.next(this.getRecipe(index));
   }
 }
