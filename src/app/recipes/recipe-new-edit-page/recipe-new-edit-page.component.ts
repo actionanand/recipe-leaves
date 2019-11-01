@@ -16,7 +16,7 @@ export class RecipeNewEditPageComponent implements OnInit, CanComponentDeactivat
   id:number;
   editMode:boolean = false;
   recipeForm: FormGroup;
-  isSaved: boolean = true;
+  isSaved: boolean = false;
 
   constructor(private route: ActivatedRoute, private recipeServ: RecipeService, private router:Router) { }
 
@@ -38,7 +38,7 @@ export class RecipeNewEditPageComponent implements OnInit, CanComponentDeactivat
     {
       this.recipeServ.addRecipe(this.recipeForm.value);
     }
-    this.isSaved = false;
+    this.isSaved = true;
     this.onCancel();
   }
 
