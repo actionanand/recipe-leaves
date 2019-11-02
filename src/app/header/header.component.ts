@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   appTitle = 'Recipe Leaves';
   isAuthenticated: boolean = false;
   private userSub: Subscription;
-  name: string = 'hi guest'
-
+  name: string = 'hi guest';
+  
   constructor(private dataStorageServ: DataStorageService, private authServ: AuthService) { }
 
   ngOnInit() {

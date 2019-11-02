@@ -18,7 +18,7 @@ export class DataStorageService {
     const recipes = this.recipeServ.getRecipes();
     this.http.put('https://recipe-leaves.firebaseio.com/recipes.json', recipes)
     .subscribe(response =>{
-      console.log(response);
+      // console.log(response);
     });
   }
 
