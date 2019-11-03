@@ -23,7 +23,7 @@ const initialState: State = {
       editedIgIndex: -1
 };
 
-export function shoppingListReducer(state = initialState, 
+export function shoppingListReducer(state:State = initialState, 
     action: ShoppingListAction.ShoppingListType){
 
     switch(action.type){
@@ -61,6 +61,21 @@ export function shoppingListReducer(state = initialState,
                     return igIndex != action.payload; //allowing all values that doesnt match the index
                 })
             };
+
+        case ShoppingListAction.START_EDIT:
+            return{
+                ...state,
+                editedIg: {...state.ingredients[action.payload]},
+                editedIgIndex: action.payload
+            };
+
+        case ShoppingListAction.STOP_EDIT:
+            return{
+                ...state,
+                editedIg: null,
+                editedIgIndex: -1
+            };
+
         default:
             return state;
 

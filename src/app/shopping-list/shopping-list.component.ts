@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Ingredient } from '../models/ingredient.model';
 import { ShoppingListService } from '../services/shopping-list.service';
 import * as fromShoppingList from 'src/app/store/shoppin-list/shopping-list.reducer';
+import * as ShoppingListAction from 'src/app/store/shoppin-list/shopping-list.actions';
 
 @Component({
   selector: 'app-shopping-list',
@@ -34,7 +35,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   onEditIngredients(index: number){
-    this.slServ.selectedIngIndex.next(index);
+    // this.slServ.selectedIngIndex.next(index);
+    this.store.dispatch(new ShoppingListAction.StartEdit(index));
   }
 
   ngOnDestroy(){
