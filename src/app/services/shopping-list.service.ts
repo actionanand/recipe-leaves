@@ -12,8 +12,9 @@ export class ShoppingListService {
   selectedIngIndex = new Subject<number>();
  
   private ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
+    new Ingredient('Onions', 5),
     new Ingredient('Tomatoes', 10),
+    new Ingredient('meat',1)
   ];
 
   constructor() { }
