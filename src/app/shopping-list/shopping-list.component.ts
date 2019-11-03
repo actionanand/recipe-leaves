@@ -22,7 +22,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.ingredients = this.store.select('shoppingList');
-    
+
     // this.ingredients = this.slServ.getIngredients();
     // this.incredientSubs=this.slServ.ingredientsChanged
     //   .subscribe(
@@ -37,7 +37,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.incredientSubs.unsubscribe();
+    // this.incredientSubs.unsubscribe();
   }
 
 }
