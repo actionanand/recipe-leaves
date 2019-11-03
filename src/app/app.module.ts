@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-modules/app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { CommonFeatureModule } from './app-modules/common-feature.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { shoppingListReducer } from './store/shoppin-list/shopping-list.reducer';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     NgbModule,
     HttpClientModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer}),
     AppRoutingModule,
     CommonFeatureModule
   ],
