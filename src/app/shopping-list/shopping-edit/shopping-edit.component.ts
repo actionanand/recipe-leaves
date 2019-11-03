@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
 import { Ingredient } from 'src/app/models/ingredient.model';
 import * as ShoppingListAction from 'src/app/store/shoppin-list/shopping-list.actions';
+import * as fromShoppingList from 'src/app/store/shoppin-list/shopping-list.reducer';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -25,7 +26,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   // @ViewChild('amountInput', { static: false }) amountInputRef: ElementRef;
 
   constructor(private slServ: ShoppingListService,
-    private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) { }
+    private store: Store<fromShoppingList.AppState>) { }
 
   ngOnInit() {
     this.ingSubscription = this.slServ.selectedIngIndex.subscribe(
